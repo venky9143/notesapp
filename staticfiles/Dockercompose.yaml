@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ./mynotes
+      dockerfile: Dockerfile
+    ports:
+      -"3000:3000"
+    volumes:
+      - ./mynotes:/app
+
+  backend:
+    build:
+      context: ./notesapp
+      dockerfile: Dockerfile
+    ports:
+      -"8080:8000"
+    volumes:
+      - .:/app
+    
